@@ -28,92 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.GridAlumnos = new System.Windows.Forms.DataGridView();
+            this.txt = new System.Windows.Forms.Button();
+            this.json = new System.Windows.Forms.Button();
+            this.xml = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.Button();
+            this.textName = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.GridAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // GridAlumnos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(44, 73);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(649, 316);
-            this.dataGridView1.TabIndex = 0;
+            this.GridAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridAlumnos.Location = new System.Drawing.Point(44, 73);
+            this.GridAlumnos.Name = "GridAlumnos";
+            this.GridAlumnos.Size = new System.Drawing.Size(649, 316);
+            this.GridAlumnos.TabIndex = 0;
             // 
-            // button1
+            // txt
             // 
-            this.button1.Location = new System.Drawing.Point(587, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txt.Location = new System.Drawing.Point(587, 415);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(75, 23);
+            this.txt.TabIndex = 1;
+            this.txt.Text = "TXT";
+            this.txt.UseVisualStyleBackColor = true;
+            this.txt.Click += new System.EventHandler(this.txt_Click);
             // 
-            // button2
+            // json
             // 
-            this.button2.Location = new System.Drawing.Point(320, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.json.Location = new System.Drawing.Point(320, 415);
+            this.json.Name = "json";
+            this.json.Size = new System.Drawing.Size(75, 23);
+            this.json.TabIndex = 2;
+            this.json.Text = "JSON";
+            this.json.UseVisualStyleBackColor = true;
+            this.json.Click += new System.EventHandler(this.json_Click);
             // 
-            // button3
+            // xml
             // 
-            this.button3.Location = new System.Drawing.Point(44, 415);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.xml.Location = new System.Drawing.Point(44, 415);
+            this.xml.Name = "xml";
+            this.xml.Size = new System.Drawing.Size(75, 23);
+            this.xml.TabIndex = 3;
+            this.xml.Text = "XML";
+            this.xml.UseVisualStyleBackColor = true;
+            this.xml.Click += new System.EventHandler(this.xml_Click);
             // 
-            // button4
+            // search
             // 
-            this.button4.Location = new System.Drawing.Point(329, 44);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.search.Location = new System.Drawing.Point(713, 73);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(75, 23);
+            this.search.TabIndex = 4;
+            this.search.Text = "SEARCH";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
-            // textBox1
+            // textName
             // 
-            this.textBox1.Location = new System.Drawing.Point(320, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.textName.Location = new System.Drawing.Point(89, 16);
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(100, 20);
+            this.textName.TabIndex = 5;
             // 
-            // label1
+            // name
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(257, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
+            this.name.AutoSize = true;
+            this.name.Location = new System.Drawing.Point(41, 19);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(33, 13);
+            this.name.TabIndex = 6;
+            this.name.Text = "name";
             // 
             // AlumnoShowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.name);
+            this.Controls.Add(this.textName);
+            this.Controls.Add(this.search);
+            this.Controls.Add(this.xml);
+            this.Controls.Add(this.json);
+            this.Controls.Add(this.txt);
+            this.Controls.Add(this.GridAlumnos);
             this.Name = "AlumnoShowForm";
             this.Text = "AlumnoShowForm";
-            this.Load += new System.EventHandler(this.AlumnoShowForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridAlumnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,12 +124,12 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView GridAlumnos;
+        private System.Windows.Forms.Button txt;
+        private System.Windows.Forms.Button json;
+        private System.Windows.Forms.Button xml;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.Label name;
     }
 }

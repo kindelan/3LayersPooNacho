@@ -17,7 +17,22 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void AlumnoShowForm_Load(object sender, EventArgs e)
+        private void txt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void json_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void xml_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_Click(object sender, EventArgs e)
         {
 
         }
