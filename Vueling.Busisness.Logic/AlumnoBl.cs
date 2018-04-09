@@ -15,8 +15,8 @@ namespace Vueling.Busisness.Logic
         public Alumno Add(Alumno alumno, string format)
         {
             Alumno al;
-            alumno.calculoEdad();
-            alumno.horaRegistro();
+            alumno.Edad = CalculoEdad(alumno.FechadeNacimiento);
+            alumno.FechadeNacimiento = HoraRegistro();
 
             switch (format)
             {
@@ -33,12 +33,24 @@ namespace Vueling.Busisness.Logic
                     al = alumnodao.Add(alumno);
                     break;
                 default:
-                    alumnodao = new AlumnoTxtDao();
-                    al = alumnodao.Add(alumno);
-                    break;
+                    throw new ArgumentException("Tipo de formato no correcto", "format");
             }
 
             return al;
+        }
+
+        private int CalculoEdad(DateTime fechaNacimiento)
+        {
+            DateTime CurrentDate = DateTime.Now;
+            var edad = CurrentDate.Year - fechaNacimiento.Year;
+            if (CurrentDate.Month < fechaNacimiento.Month || (CurrentDate.Month == fechaNacimiento.Month && CurrentDate.Day < fechaNacimiento.Day))
+                edad--;
+            return edad;
+        }
+
+        public DateTime HoraRegistro()
+        {
+            return DateTime.Now;
         }
 
     }

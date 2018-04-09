@@ -13,7 +13,7 @@ namespace Vueling.DataAccess.Dao.Tests
     [TestClass()]
     public class AlumnoDaoTests
     {
-        private string path = (@"alumnos.txt");
+        private readonly string path = (@"alumnos.txt");
         private IAlumnoDao alumnodao;
 
 
@@ -25,22 +25,18 @@ namespace Vueling.DataAccess.Dao.Tests
             if (File.Exists(path)) { File.Delete(path); }
         }
 
-        [DataRow(1, "dd", "dd", "dd", "10-03-1988")]
+        [DataRow(1, "dd", "dd", "dd", "10-03-1988", 20)]
         [DataTestMethod]
-        public void AddTest(int idAlumno, string name, string apellidos, string dni, string fechadenacimiento)
+        public void AddTest(int idAlumno, string name, string apellidos, string dni, string fechadenacimiento, int edad)
         {
             var fechaNac = Convert.ToDateTime(fechadenacimiento);
             Alumno alumno = new Alumno(name, apellidos, idAlumno, fechaNac, dni);
             alumno.Guid = System.Guid.NewGuid().ToString();
-            alumno.calculoEdad();
-            alumno.horaRegistro();
+            alumno.Edad = edad;
+            alumno.FechadeCreacion = DateTime.Now;
             alumnodao.Add(alumno);
-            Console.WriteLine(alumno.FechadeCreacion);
 
             Alumno alumnotest = LeerAlumnoTxt();
-            Console.WriteLine(alumno);
-            Console.WriteLine(alumnotest);
-
             Assert.IsTrue(alumno.Equals(alumnotest));
         }
 
@@ -62,7 +58,7 @@ namespace Vueling.DataAccess.Dao.Tests
                 var id = Convert.ToInt32(fields[2]);
                 var fechadenacimiento = Convert.ToDateTime(fields[3]);
                 var dni = fields[4];
-                var edad = Convert.ToInt32(fields[5]);          
+                var edad = Convert.ToInt32(fields[5]);
                 var fechadecreacion = Convert.ToDateTime(fields[6]);
                 Console.WriteLine(fechadecreacion);
                 var Guid = fields[7];

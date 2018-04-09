@@ -16,7 +16,7 @@ namespace Vueling.DataAccess.Dao.Tests
     [TestClass()]
     public class AlumnoJsonDaoTests
     {
-        private string path = (@"alumnos.json");
+        private readonly string path = (@"alumnos.json");
         private IAlumnoDao alumnojsondao;
 
 
@@ -28,25 +28,19 @@ namespace Vueling.DataAccess.Dao.Tests
             if (File.Exists(path)) { File.Delete(path); }
         }
 
-        [DataRow(1, "dd", "dd", "dd", "10-03-1888")]
+        [DataRow(1, "dd", "dd", "dd", "10-03-1888", 25)]
         [DataTestMethod]
-        public void AddTest(int idAlumno, string name, string apellidos, string dni, string fechadenacimiento)
+        public void AddTest(int idAlumno, string name, string apellidos, string dni, string fechadenacimiento, int edad)
         {
             var fechaNac = Convert.ToDateTime(fechadenacimiento);
             Alumno alumno = new Alumno(name, apellidos, idAlumno, fechaNac, dni);
             alumno.Guid = System.Guid.NewGuid().ToString();
-            alumno.calculoEdad();
-            alumno.horaRegistro();
+            alumno.Edad = edad;
+            alumno.FechadeCreacion = DateTime.Now;
 
-            // Realizamos la llamada metodo para añadir elemento
             alumnojsondao.Add(alumno);
 
-            // Leemos fichero pruebas JSON
             Alumno alumnotest = LeerAlumnoJson();
-
-            Console.WriteLine(alumno);
-            Console.WriteLine(alumnotest);
-
             Assert.IsTrue(alumno.Equals(alumnotest));
         }
 
@@ -59,11 +53,6 @@ namespace Vueling.DataAccess.Dao.Tests
 
         private Alumno LeerAlumnoJson()
         {
-            //String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-            //var fullPath = path + "\\" + "alumnos.json";
-
-
             using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             using (StreamReader sw = new StreamReader(fs))
             {

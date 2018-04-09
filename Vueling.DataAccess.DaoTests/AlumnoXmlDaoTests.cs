@@ -16,7 +16,7 @@ namespace Vueling.DataAccess.Dao.Tests
     public class AlumnoXmlDaoTests
     {
 
-        private string path = (@"alumnos.xml");
+        private readonly string path = (@"alumnos.xml");
         private IAlumnoDao alumnoxmldao;
 
         [TestInitialize]
@@ -27,22 +27,20 @@ namespace Vueling.DataAccess.Dao.Tests
             if (File.Exists(path)) { File.Delete(path); }
         }
 
-        [DataRow(1, "dd", "dd", "dd", "10-03-1888")]
+        [DataRow(1, "dd", "dd", "dd", "10-03-1888", 13)]
 
 
         [DataTestMethod]
-        public void AddTest(int idAlumno, string name, string apellidos, string dni, string fechadenacimiento)
+        public void AddTest(int idAlumno, string name, string apellidos, string dni, string fechadenacimiento, int edad)
         {
             var fechaNac = Convert.ToDateTime(fechadenacimiento);
             Alumno alumno = new Alumno(name, apellidos, idAlumno, fechaNac, dni);
             alumno.Guid = System.Guid.NewGuid().ToString();
-            alumno.calculoEdad();
-            alumno.horaRegistro();
+            alumno.Edad = edad;
+            alumno.FechadeCreacion = DateTime.Now;
 
-            // Realizamos la llamada metodo para añadir elemento
             alumnoxmldao.Add(alumno);
 
-            // Leemos fichero pruebas Xml
             Alumno alumnotest = LeerAlumnoXml();
 
             Console.WriteLine(alumno);

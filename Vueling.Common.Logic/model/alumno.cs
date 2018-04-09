@@ -38,16 +38,6 @@ namespace Vueling.Common.Logic.model
             Guid = guid;
         }
 
-        public void calculoEdad()
-        {
-            Edad = DateTime.Now.Year - FechadeNacimiento.Year;
-        }
-
-        public void horaRegistro()
-        {
-            FechadeCreacion = DateTime.Now;
-        }
-
         public void SetGuid()
         {
             Guid = System.Guid.NewGuid().ToString();
