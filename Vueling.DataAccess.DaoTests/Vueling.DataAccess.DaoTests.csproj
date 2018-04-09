@@ -60,6 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AlumnoDaoTests.cs" />
+    <Compile Include="AlumnoJsonDaoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
